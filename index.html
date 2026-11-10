@@ -1,97 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0b1020" />
-  <meta name="description" content="Bee Studio — Build a brighter digital future." />
-  <title>Bee Studio — Make ideas happen</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f8fc">
+  <title>Bee | Test Page</title>
   <style>
-    :root { color-scheme:dark; --bg:#0b1020; --surface:#141c31; --surface2:#1c2640; --text:#f7f8ff; --muted:#aeb8d0; --yellow:#ffd25e; --border:rgba(255,255,255,.12); }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
-    a { color:inherit; text-decoration:none; }
-    button { font:inherit; }
-    .shell { max-width:1140px; margin:0 auto; padding:0 24px; }
-    .nav { display:flex; align-items:center; justify-content:space-between; min-height:88px; gap:24px; }
-    .logo { display:inline-flex; align-items:center; gap:10px; font-size:1.35rem; font-weight:800; letter-spacing:-.04em; }
-    .logo-mark { display:grid; place-items:center; width:43px; height:43px; border-radius:14px; background:var(--yellow); color:#0b1020; font-size:23px; }
-    .nav-links { display:flex; gap:31px; font-size:.93rem; color:var(--muted); }
-    .nav-links a:hover, .footer a:hover { color:var(--yellow); }
-    .nav-cta,.button { display:inline-flex; justify-content:center; align-items:center; gap:10px; padding:12px 21px; border:1px solid var(--border); border-radius:12px; font-size:.91rem; font-weight:700; transition:transform .2s,background .2s; }
-    .nav-cta:hover,.button:hover { transform:translateY(-2px); }
-    .button.primary { color:#121524; background:var(--yellow); border-color:var(--yellow); box-shadow:0 10px 45px rgba(255,210,94,.15); }
-    .button.secondary { background:rgba(255,255,255,.055); }
-    .hero { display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; padding:100px 0 116px; }
-    .eyebrow { display:inline-flex; gap:9px; align-items:center; padding:8px 13px; border:1px solid rgba(255,210,94,.26); border-radius:999px; color:var(--yellow); background:rgba(255,210,94,.07); font-size:.76rem; letter-spacing:.08em; font-weight:800; text-transform:uppercase; }
-    .eyebrow::before { content:""; height:7px; width:7px; background:var(--yellow); border-radius:50%; }
-    h1 { font-size:clamp(3.3rem,6.4vw,5.65rem); line-height:1.07; letter-spacing:-.075em; margin:25px 0; }
-    h1 span { color:var(--yellow); }
-    .lead { max-width:550px; font-size:1.12rem; color:var(--muted); margin-bottom:32px; }
-    .actions { display:flex; flex-wrap:wrap; gap:13px; }
-    .hero-art { position:relative; min-height:440px; display:grid; place-items:center; border-radius:34px; background:radial-gradient(circle at 55% 35%,rgba(255,210,94,.21),transparent 51%),linear-gradient(145deg,#1b2643,#11182a); border:1px solid var(--border); overflow:hidden; }
-    .hero-art::before,.hero-art::after { content:""; position:absolute; border:1px solid rgba(255,210,94,.13); border-radius:50%; width:380px; height:380px; }
-    .hero-art::after { width:275px; height:275px; }
-    .bee { position:relative; z-index:1; width:190px; height:190px; display:grid; place-items:center; border-radius:48px; background:linear-gradient(145deg,#ffe58d,#ffbd3c); box-shadow:0 32px 95px rgba(255,188,44,.24); font-size:112px; transform:rotate(-9deg); animation:float 5s ease-in-out infinite; }
-    @keyframes float { 0%,100%{transform:translateY(0) rotate(-9deg)} 50%{transform:translateY(-18px) rotate(-5deg)} }
-    .float-note { position:absolute; z-index:2; padding:12px 16px; background:rgba(31,43,70,.94); border:1px solid var(--border); backdrop-filter:blur(8px); border-radius:12px; font-size:.83rem; font-weight:700; }
-    .note-a { top:62px; right:19px; } .note-b { bottom:67px; left:16px; }
-    .section { padding:45px 0 105px; }
-    .section-head { max-width:580px; margin-bottom:32px; }
-    .kicker { text-transform:uppercase; color:var(--yellow); letter-spacing:.12em; font-size:.78rem; font-weight:800; }
-    h2 { font-size:clamp(2rem,3.5vw,2.85rem); letter-spacing:-.055em; line-height:1.18; margin:12px 0; }
-    .section-head p,.feature p,.about p { color:var(--muted); }
-    .features { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; }
-    .feature { padding:29px; border:1px solid var(--border); border-radius:22px; background:var(--surface); }
-    .feature-icon { width:50px; height:50px; display:grid; place-items:center; font-size:25px; border-radius:15px; color:var(--yellow); background:rgba(255,210,94,.1); }
-    .feature h3 { margin:24px 0 8px; letter-spacing:-.035em; font-size:1.18rem; }
-    .feature p { margin:0; font-size:.94rem; }
-    .about { display:flex; justify-content:space-between; align-items:center; gap:28px; padding:38px; border-radius:24px; border:1px solid var(--border); background:linear-gradient(115deg,#1f2b4a,#141c30); margin-bottom:85px; }
-    .about h2 { margin:8px 0; }
-    .about p { margin:0; max-width:570px; }
-    .footer { border-top:1px solid var(--border); padding:27px 0; display:flex; justify-content:space-between; align-items:center; gap:18px; color:var(--muted); font-size:.86rem; }
-    .footer a { transition:color .2s; }
-    @media (max-width:850px) { .hero { grid-template-columns:1fr; padding:65px 0 80px; } .hero-art { min-height:355px; } .features { grid-template-columns:1fr; } .about { flex-direction:column; align-items:start; } }
-    @media (max-width:580px) { .shell { padding:0 18px; } .nav { min-height:75px; } .nav-links { display:none; } .nav-cta { padding:9px 13px; font-size:.8rem; } .hero { gap:34px; padding-top:45px; } h1 { font-size:clamp(2.85rem,13vw,4rem); } .lead { font-size:1rem; } .hero-art { min-height:300px; } .bee { width:140px; height:140px; font-size:85px; border-radius:35px; } .note-a { top:25px; } .note-b { bottom:28px; } .section { padding-bottom:70px; } .about { padding:25px; margin-bottom:55px; } .footer { flex-direction:column; text-align:center; } }
-    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; scroll-behavior:auto!important; } }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: #f7f8fc;
+      color: #1e293b;
+    }
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 18px 24px;
+    }
+    .nav {
+      max-width: 850px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand { font-size: 20px; font-weight: 800; color: #2563eb; }
+    .branch { color: #64748b; font-size: 13px; }
+    main {
+      max-width: 850px;
+      margin: 80px auto;
+      padding: 0 24px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, .05);
+      padding: 38px;
+    }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 6px 11px;
+      border-radius: 100px;
+      background: #ecfdf5;
+      color: #047857;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #10b981; }
+    h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.2; margin: 22px 0 10px; }
+    p { color: #64748b; line-height: 1.7; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+    button {
+      border: 0;
+      border-radius: 9px;
+      background: #2563eb;
+      color: white;
+      padding: 12px 18px;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: #1d4ed8; }
+    .reset { background: #e2e8f0; color: #334155; }
+    .reset:hover { background: #cbd5e1; }
+    .counter { color: #0f172a; font-weight: 700; }
+    footer { text-align: center; color: #94a3b8; font-size: 13px; padding: 22px; }
+    @media (max-width: 600px) { main { margin: 42px auto; } .card { padding: 25px; } }
   </style>
 </head>
 <body>
-  <header class="shell">
+  <header>
     <nav class="nav" aria-label="Main navigation">
-      <a class="logo" href="#" aria-label="Bee Studio home"><span class="logo-mark" aria-hidden="true">✦</span> Bee<span style="color:var(--yellow)">.</span></a>
-      <div class="nav-links"><a href="#features">Features</a><a href="#about">About</a><a href="#contact">Contact</a></div>
-      <a class="nav-cta" href="https://github.com/BeeIsHoney/test_repo/tree/Bee" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <span class="brand">Bee.</span>
+      <span class="branch">test_repo / Bee branch</span>
     </nav>
   </header>
   <main>
-    <section class="shell hero" aria-labelledby="hero-title">
-      <div>
-        <span class="eyebrow">Welcome to Bee Studio</span>
-        <h1 id="hero-title">Small ideas.<br><span>Big impact.</span></h1>
-        <p class="lead">A fresh space to experiment, create, and bring great ideas to life. Crafted with curiosity and built for what comes next.</p>
-        <div class="actions"><a class="button primary" href="#features">Explore features <span aria-hidden="true">↗</span></a><a class="button secondary" href="#about">Learn more →</a></div>
+    <section class="card">
+      <span class="status"><span class="dot" aria-hidden="true"></span> Frontend ready</span>
+      <h1>Hello, Bee! 👋</h1>
+      <p>This is a simple homepage for testing HTML, CSS, JavaScript, and GitHub branch updates.</p>
+      <p>Button clicks: <span class="counter" id="count" aria-live="polite">0</span></p>
+      <div class="actions">
+        <button id="test" type="button">Test Button</button>
+        <button id="reset" class="reset" type="button">Reset</button>
       </div>
-      <div class="hero-art" aria-label="Decorative illustration of a bee">
-        <div class="bee" aria-hidden="true">🐝</div>
-        <div class="float-note note-a">✨ Create something new</div>
-        <div class="float-note note-b">⚡ Made to explore</div>
-      </div>
-    </section>
-    <section id="features" class="section shell" aria-labelledby="features-title">
-      <div class="section-head"><div class="kicker">Why Bee?</div><h2 id="features-title">Everything starts with an idea.</h2><p>A lightweight homepage designed to look great and serve as a starting point for future projects.</p></div>
-      <div class="features">
-        <article class="feature"><div class="feature-icon" aria-hidden="true">✦</div><h3>Modern design</h3><p>Beautiful typography, warm accents, and a clean dark interface.</p></article>
-        <article class="feature"><div class="feature-icon" aria-hidden="true">▣</div><h3>Responsive layout</h3><p>Comfortable to explore on mobile devices, tablets, and desktops.</p></article>
-        <article class="feature"><div class="feature-icon" aria-hidden="true">⚡</div><h3>Simple to extend</h3><p>One HTML file, with no build tools or dependencies to install.</p></article>
-      </div>
-    </section>
-    <section id="about" class="shell" aria-labelledby="about-title">
-      <div class="about"><div><div class="kicker">The next chapter</div><h2 id="about-title">Ready to make something?</h2><p>This is the beginning. Explore the code, customize the design, and create something uniquely yours.</p></div><a class="button primary" id="contact" href="https://github.com/BeeIsHoney/test_repo" target="_blank" rel="noopener noreferrer">View project ↗</a></div>
     </section>
   </main>
-  <div class="shell"><footer class="footer"><span>© <span id="year">2026</span> Bee Studio. Built with care.</span><a href="https://github.com/BeeIsHoney/test_repo/tree/Bee" target="_blank" rel="noopener noreferrer">Open source on GitHub ↗</a></footer></div>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <footer>Bee Test Page · Simple and responsive</footer>
+  <script>
+    let count = 0;
+    const counter = document.getElementById("count");
+    document.getElementById("test").addEventListener("click", () => {
+      count += 1;
+      counter.textContent = String(count);
+    });
+    document.getElementById("reset").addEventListener("click", () => {
+      count = 0;
+      counter.textContent = "0";
+    });
+  </script>
 </body>
 </html>
